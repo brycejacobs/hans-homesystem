@@ -1,6 +1,6 @@
 
-angular.module( 'sosickBoilerplate.register', [
-  'ui.state'
+angular.module( 'monitorSystem.register', [
+  'ui.router'
 ])
 
 .config(function config( $stateProvider ) {

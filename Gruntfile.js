@@ -217,7 +217,10 @@ module.exports = function (grunt) {
     sass: {
       dev: {
         files: {
-          '<%= project.path.client %>/styles.css': '<%= project.path.client %>/app.scss'
+          '<%= project.path.client %>/css/styles.css':
+          [
+            '<%= project.path.client %>/app.scss'
+          ]
         }
       }
     },

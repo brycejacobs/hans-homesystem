@@ -3,8 +3,6 @@ angular.module( 'monitorSystem', [
   'monitorSystem.home',
   'monitorSystem.auth',
   'monitorSystem.register',
-  'monitorSystem.account',
-  'monitorSystem.admin',
   'ui.router',
   'ui.bootstrap',
   'ngCookies',
@@ -15,9 +13,9 @@ angular.module( 'monitorSystem', [
   $urlRouterProvider.otherwise( '/home' );
 })
 
-.controller( 'AppCtrl', function AppCtrl ($scope, userFactory, $state) {
+.controller( 'AppCtrl', function AppCtrl ($scope, userFactory) {
   $scope.name = userFactory.name;
-  $state.go('home');
+
 })
 
 ;

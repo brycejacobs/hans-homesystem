@@ -4,14 +4,10 @@ angular.module( 'monitorSystem.auth', [
 ])
 
 .config(function config( $stateProvider ) {
-  $stateProvider.state('home.signin', {
+  $stateProvider.state('signin', {
     url: '/signin',
-    views: {
-      'signin@': {
-        controller: 'AuthCtrl',
-        templateUrl: 'auth/auth.tpl.html'
-      }
-    }
+    controller: 'AuthCtrl',
+    templateUrl: 'auth/auth.tpl.html'
   });
 })
 
