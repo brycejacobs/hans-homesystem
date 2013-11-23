@@ -141,7 +141,7 @@ Q.async(function *() {
 app.run = function () {
   // Connect to DB
   ultimate.db.mongoose.connect(app.config.db.mongo);
-  ultimate.db.redis.connect(app.config.db.redis);
+  // ultimate.db.redis.connect(app.config.db.redis);
 
   // Start servers
   ultimate.server.express.run(app);
