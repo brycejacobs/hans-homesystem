@@ -15,8 +15,8 @@ angular.module( 'monitorSystem', [
   $urlRouterProvider.otherwise( '/home' );
 })
 
-.controller( 'AppCtrl', function AppCtrl (userFactory ) {
-
+.controller( 'AppCtrl', function AppCtrl ($scope, userFactory ) {
+  $scope.name = userFactory.name;
 })
 
 ;

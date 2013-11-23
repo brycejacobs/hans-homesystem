@@ -1,16 +1,8 @@
 'use strict';
 
-var util = require('util');
+var ultimate = require('soultimate');
 
-var _ = require('lodash'),
-    bcrypt = require('bcrypt'),
-    ultimate = require('soultimate');
-
-var mongoose = ultimate.lib.mongoose,
-    plugin = ultimate.db.mongoose.plugin,
-    type = ultimate.db.mongoose.type;
-
-var app = require('../app');
+var mongoose = ultimate.lib.mongoose;
 
 // Schema
 var schema = new mongoose.Schema({
@@ -25,3 +17,5 @@ baucis.rest({
   singular: 'Device',
   plural: 'Devices'
 });
+
+exports = module.exports = model;

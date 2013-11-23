@@ -35,6 +35,7 @@ angular.module( 'monitorSystem')
       _id: $cookies['user._id'],
       name: $cookies['user.name.full'],
       csrf: $cookies.csrf,
+      get: get,
       logout: logout,
       login: login,
       register: register

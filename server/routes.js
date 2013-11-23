@@ -9,9 +9,7 @@ var ultimate = require('soultimate');
 // Register controllers to routes.
 exports.register = function (app) {
   var csrf = ultimate.server.controller.csrf,
-      ensureAdmin = ultimate.server.controller.ensureAdmin,
-      ensureGuest = ultimate.server.controller.ensureGuest,
-      ensureUser = ultimate.server.controller.ensureUser;
+      ensureGuest = ultimate.server.controller.ensureGuest;
 
   var error404 = ultimate.server.route.error404;
 

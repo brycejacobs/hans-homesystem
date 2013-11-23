@@ -18,10 +18,7 @@ angular.module( 'monitorSystem.auth', [
 .controller( 'AuthCtrl', function AuthController( $scope, userFactory ) {
 
   $scope.login = function login() {
-    user.login($scope.username, $scope.password)
-      .then(function () {
-        ///change state
-      });
+    userFactory.login($scope.username, $scope.password);
   };
 
 });
