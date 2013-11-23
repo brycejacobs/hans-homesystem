@@ -22,13 +22,9 @@ exports.register = function (app) {
   s.get('/express', c.home.express);
 
   // Auth
-  s.get('/login', ensureGuest, c.auth.login);
   s.post('/login', ensureGuest, csrf, c.auth.loginPOST);
-  s.get('/logout', c.auth.logout);
   s.post('/logout', c.auth.logoutPOST);
-  s.get('/lost-password', ensureGuest, c.auth.lostPassword);
   s.post('/lost-password', ensureGuest, csrf, c.auth.lostPasswordPOST);
-  s.get('/register', ensureGuest, c.auth.register);
   s.post('/register', ensureGuest, csrf, c.auth.registerPOST);
 
 

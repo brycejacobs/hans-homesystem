@@ -21,9 +21,7 @@ angular.module( 'monitorSystem.auth', [
     user.login($scope.username, $scope.password)
       .then(function () {
         ///change state
-      })
+      });
   };
 
-})
-
-;
+});
