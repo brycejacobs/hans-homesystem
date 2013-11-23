@@ -1,0 +1,20 @@
+<h1>Admin Area</h1>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Users</h3>
+  </div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <li ng-repeat="user in users" class="list-group-item">
+        <span class="badge" ng-if="user.isAdmin()">Admin</span>
+        <h4 class="list-group-item-heading">{{user.name.first}} {{user.name.last}}</h4>
+        <p class="list-group-item-text">
+          Joined on: {{user.createdAt | date}}
+          <span ng-if="user.isAdmin()"><br /><a ng-click="removeAdmin(user)">Remove Admin Status</a></span>
+          <span ng-if="!user.isAdmin()"><br /><a ng-click="setAdmin(user)">Set Admin Status</a></span>
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>

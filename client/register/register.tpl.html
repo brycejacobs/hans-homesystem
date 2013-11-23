@@ -1,0 +1,44 @@
+<form class="register form-horizontal" novalidate>
+  <div class="alert alert-danger" ng-if="errors.length">
+    <div ng-repeat="message in errors" ng-hide="message.hidden" ng-bind-html="message"></div>
+  </div>
+
+  <h2>New account</h2>
+
+  <div class="row form-group">
+    <div class="col-lg-11">
+      <input type="text" ng-required class="form-control" name="username" placeholder="e-mail address" ng-model="username"></input>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-lg-11">
+      <input type="password" ng-required ng-model="password" class="form-control" name="password" placeholder="password"></input>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-lg-11">
+      <input type="password" ng-required class="form-control" ng-model="passwordRepeat" name="passwordRepeat" placeholder="repeat password"></input>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="row col-lg-11">
+      <div class="col-6" style="padding-right: 0;">
+        <input type="text" ng-required class="form-control" name="firstName" placeholder="first name" ng-model="firstName"></input>
+      </div>
+      <div class="col-6" style="padding-right: 0;">
+        <input type="text" ng-required class="form-control" name="lastName" placeholder="last name" ng-model="lastName"></input>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <button class="btn btn-default btn-large" ng-click="register()">Register</button>
+    </div>
+  </div>
+</form>

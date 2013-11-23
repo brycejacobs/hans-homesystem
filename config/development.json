@@ -1,0 +1,92 @@
+{
+  "api": {
+    "aws": {
+      "key": "@@@@@",
+      "secret": "@@@@@"
+    },
+    "facebook": {
+      "appId": "@@@@@",
+      "appSecret": "@@@@@"
+    },
+    "google": {
+      "clientId": "@@@@@",
+      "clientSecret": "@@@@@"
+    },
+    "twitter": {
+      "accessToken": "@@@@@",
+      "accessTokenSecret": "@@@@@",
+      "consumerKey": "@@@@@",
+      "consumerSecret": "@@@@@"
+    }
+  },
+  "cookie": {
+    "secret": "UlTiMaTeSeCrEtKeY"
+  },
+  "db": {
+    "mongo": {
+      "host": "ds053428.mongolab.com",
+      "port": 53428,
+      "username": "hans_admin",
+      "password": "Fake123!",
+      "db": "hans"
+    },
+    "redis": {
+      "host": "localhost",
+      "port": 6379,
+      "password": null
+    }
+  },
+  "log": {
+    "_use": [
+      "console",
+      "sns"
+    ],
+    "transport": {
+      "console": {
+        "level": "debug"
+      },
+      "file": {
+        "level": "error"
+      },
+      "mongo": {
+        "level": "error"
+      },
+      "sns": {
+        "level": "error",
+        "subscriber": "@@@@@",
+        "topicArn": "@@@@@"
+      }
+    }
+  },
+  "session": {
+    "_use": "mongo",
+    "key": "sid",
+    "secret": "UlTiMaTeSeCrEtKeY",
+    "store": {
+      "mongo": {
+        "collection": "sessions"
+      },
+      "redis": {
+        "prefix": "ultimate-seed:sessions"
+      }
+    }
+  },
+  "socketio": {
+    "store": "redis"
+  },
+  "storage": {
+    "_use": "s3",
+    "backend": {
+      "cloudFiles": {
+        "container": {
+          "main": "@@@@@"
+        }
+      },
+      "s3": {
+        "bucket": {
+          "main": "@@@@@"
+        }
+      }
+    }
+  }
+}

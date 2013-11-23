@@ -1,0 +1,55 @@
+@import "lib/sass-bootstrap/lib/bootstrap";
+
+body {
+  padding-top: 50px; /* Fixed header */
+  min-height: 80px;
+}
+
+a[ng-click] {
+  cursor: pointer;
+}
+
+.auth {
+  border: solid #e7e7e7;
+  border-width: 0 1px 1px 1px;
+  position: absolute;
+  background: #f8f8f8;
+  padding: 0.3em 3.0em;
+  margin: 10px 0 0 0;
+  right: 0;
+}
+
+.register .alert,
+.login .alert {
+  margin-top: 1.9rem;
+}
+
+.footer {
+  margin-top: 80px;
+
+  .footer-inner {
+    padding: 20px 0;
+    border-top: 1px solid #DDD;
+  }
+
+  .social {
+    float: right;
+    margin: 0;
+    list-style: none;
+
+    li {
+      float: left;
+      margin-left: 20px;
+
+      a, a:visited {
+        color: #ccc;
+        text-decoration: none;
+        font-size: 40px;
+
+        &:hover {
+          color: #ccc;
+        }
+      }
+    }
+  }
+}

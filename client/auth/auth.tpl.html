@@ -1,0 +1,31 @@
+<form class="login form-horizontal" novalidate>
+
+  <div class="alert alert-danger" ng-if="errors.length">
+    <div ng-repeat="message in errors" ng-hide="message.hidden" ng-bind-html="message"></div>
+  </div>
+
+  <h2>Please log in</h2>
+
+  <div class="row form-group">
+    <div class="col-lg-11">
+      <input type="text" class="form-control" name="username" placeholder="e-mail address" ng-model="username"></input>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-lg-11">
+      <input type="password" ng-model="password" class="form-control" name="password" placeholder="password"></input>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <button class="btn btn-default btn-large" ng-click="login()">Login</button>
+      <a class="btn btn-large" href="#/register">Register</a>
+    </div>
+  </div>
+
+  <hr>
+</form>
