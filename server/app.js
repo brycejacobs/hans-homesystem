@@ -88,11 +88,7 @@ app.attachMiddlewares = function () {
   app.servers.express.getServer().use(ultimate.lib.passport.initialize());
   app.servers.express.getServer().use(ultimate.lib.passport.session());
 
-  // Passport strategies
-  ultimate.server.middleware.passport.facebook.attach(app);
-  ultimate.server.middleware.passport.google.attach(app);
   ultimate.server.middleware.passport.local.attach(app);
-  ultimate.server.middleware.passport.twitter.attach(app);
 
   // Hide Powered-by header
   ultimate.server.middleware.hidePoweredByHeader.attach(app);
@@ -132,6 +128,7 @@ app.attachREPLContext = function (context) {
   context.ld = _;  // _ is taken by REPL.
   context.ultimate = ultimate;
 };
+
 var Q = require('q');
 Q.async(function *() {
   yield null;

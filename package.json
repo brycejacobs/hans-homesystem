@@ -41,7 +41,8 @@
     "wrench": "~1.5.1",
     "xml2js": "~0.2.8",
     "q": "=0.9.6",
-    "baucis": "~0.6.13"
+    "baucis": "~0.6.13",
+    "svd-xbee": "0.3.x"
   },
   "devDependencies": {
     "coffeeify": "~0.5.1",
