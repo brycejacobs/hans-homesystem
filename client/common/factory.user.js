@@ -2,7 +2,7 @@ angular.module( 'monitorSystem')
   .factory('userFactory', function ( $cookies, $http, $location ) {
 
     function get(id) {
-      return $http.get('/api/users/' + id)
+      return $http.get('/api/v1/users/' + id)
         .then(function (results) {
           return results.data;
         });
@@ -16,7 +16,7 @@ angular.module( 'monitorSystem')
     }
 
     function login(username, password) {
-      return $http.post('/login', { _csrf: output.csrf, username: username, password: password }).success(function (user) {
+      return $http.post('/api/login', { _csrf: output.csrf, username: username, password: password }).success(function (user) {
         output._id = user._id;
         $location.path('/home');
       });
@@ -25,7 +25,7 @@ angular.module( 'monitorSystem')
     function register(user) {
       user._csrf = output.csrf;
 
-      return $http.post('/register', user).success(function (fullName) {
+      return $http.post('/api/register', user).success(function (fullName) {
         output.name = fullName;
         $location.path('/home');
       });

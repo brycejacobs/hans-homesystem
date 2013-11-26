@@ -23,7 +23,7 @@ exports.register = function (app) {
   s.post('/login', ensureGuest, csrf, c.auth.loginPOST);
   s.post('/logout', c.auth.logoutPOST);
   s.post('/lost-password', ensureGuest, csrf, c.auth.lostPasswordPOST);
-  s.post('/register', ensureGuest, csrf, c.auth.registerPOST);
+  s.post('/api/register', ensureGuest, csrf, c.auth.registerPOST);
 
 
   // Blacklist (404.html)

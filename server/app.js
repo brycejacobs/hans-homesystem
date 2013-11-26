@@ -129,10 +129,10 @@ app.attachREPLContext = function (context) {
   context.ultimate = ultimate;
 };
 
-var Q = require('q');
-Q.async(function *() {
-  yield null;
-});
+// var Q = require('q');
+// Q.async(function *() {
+//   yield null;
+// });
 
 // Run app.servers
 app.run = function () {
@@ -143,6 +143,11 @@ app.run = function () {
   ultimate.server.express.run(app);
   ultimate.server.http.run(app);
   ultimate.server.repl.run(app);
+  ultimate.server.socketio.run(app);
+
+
+  // Register socket.io handlers
+  require('./socketio').register(app);
 
   // Return HTTP server
   return app.servers.http.getServer();

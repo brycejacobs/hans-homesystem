@@ -60,7 +60,7 @@ module.exports = function (grunt) {
             expand: true,
             flatten: true,
             cwd: '<%= project.path.bower %>',
-            dest: '<%= project.path.dist %>/js/vendor',
+            dest: '<%= project.path.temp %>/js/vendor',
             src: [
               'es5-shim/es5-shim.js',
               'json3/lib/json3.js',
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
           {
             expand: true,
             cwd: '<%= project.path.client %>',
-            dest: '<%= project.path.dist %>',
+            dest: '<%= project.path.temp %>',
             src: [
               'index.html'
             ]
@@ -275,6 +275,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('devBuild', [
+    'jshint',
     'clean:dev',
     'copy:dev',
     'cacheBust:dev'

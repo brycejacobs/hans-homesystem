@@ -11,7 +11,7 @@ angular.module( 'monitorSystem.register', [
   });
 })
 
-.controller( 'RegisterCtrl', function AccountController( $scope, user ) {
+.controller( 'RegisterCtrl', function AccountController( $scope, userFactory) {
 
   $scope.register = function registerUser() {
     var newUser = {
@@ -22,7 +22,7 @@ angular.module( 'monitorSystem.register', [
       lastName: $scope.lastName
     };
 
-    user.register(newUser)
+    userFactory.register(newUser)
       .error(function (result) {
         $scope.errors = result.errors;
       });
