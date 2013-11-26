@@ -26,7 +26,8 @@
           </div>
           <div class="navbar-collapse collapse">
             <form class="navbar-form navbar-right">
-              HERE
+              <a ng-if="!user.name" ui-sref="signin" class="btn btn-success">Sign in or register</a>
+              <a ng-if="user.name" ui-sref="account" class="btn btn-success">{{user.name}}</a>
             </form>
           </div><!--/.navbar-collapse -->
         </div>
@@ -37,7 +38,7 @@
     </div>
 
   <footer class="footer">
-<!--     <div class="container">
+    <div class="container">
       <div class="footer-inner">
         <ul class="social">
           <li><a target="_blank" href="http://gplus.to/sosickstudios"><i class="icon-google-plus-sign"></i></a></li>
@@ -45,7 +46,7 @@
           <li><a target="_blank" href="http://linkedin.com/in/sosickstudios"><i class="icon-linkedin-sign"></i></a></li>
           <li><a target="_blank" href="http://github.com/sosickstudios"><i class="icon-github-sign"></i></a></li>
         </ul>
-      </div> -->
+      </div>
     </div>
   </footer>
 

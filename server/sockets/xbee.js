@@ -1,58 +1,63 @@
 'use strict';
 
-var XBee = require('svd-xbee');
+var xbee_api = require('xbee-api');
+var SerialPort = require('serialport').SerialPort;
+var util = require('util');
+
 
 exports.onConnect = function (socket) {
 
   socket.on('device:toggle', function () {
     //This will be of format {_id: String, status: bool, current: Dont Care}
-    //This should tell the xbee to send out a msg to that device to turn on/off
+    //This should tell the xbee to send out a msg to that device to turn on/off'
+    writeToggle(serialPort);
   });
 
-  var xbee = new XBee({
-    port: 'COM0',   // replace with yours
-    baudrate: 9600 // 9600 is default
-  }).init();
+  // SerialPort.list(function (err, ports) {
+  //   ports.forEach(function(port) {
+  //     console.log(port.comName);
+  //     console.log(port.pnpId);
+  //     console.log(port.manufacturer);
+  //   });
+  // });
+  var C = xbee_api.constants;
 
-  xbee.on('initialized', function(params) {
-    console.log('XBee Parameters: %s', util.inspect(params));
-    if(socket) {
-      socket.emit('discover:start', {
-        data: null
-      });
-    }
-
-    xbee.discover();
+  var xbeeAPI = new xbee_api.XBeeAPI({
+    api_mode: 1
   });
 
-  xbee.on('discoveryEnd', function() {
-    if(socket) {
-      socket.emit('discover:end', {
-        data: null
-      });
-    }
+  var serialport = new SerialPort('/dev/cu.usbserial-FTGDGWJ0', {
+    baudrate: 9600,
+    parser: xbeeAPI.rawParser()
   });
 
-  // Triggered whenever a node is discovered that is not already
-  xbee.on('newNodeDiscovered', function(node) {
-    //this node that is emitted needs to be of the format {_id: String, status: bool, current: Number}
-    if(socket) {
-      socket.emit('device:add', {
-        device: null
-      });
-    }
-
-    console.log('Node %s discovered.', node.remote64.hex);
+  serialport.on('open', function() {
+    console.log('Serial port open... sending ATND');
+    writeToggle(serialport);
   });
+
+  xbeeAPI.on('frame_object', function(frame) {
+    console.log('OBJ> ' + util.inspect(frame));
+  });
+
+  function writeToggle(serialPort) {
+    var frame = {
+      id: xbeeAPI.nextFrameId(),
+      type: C.FRAME_TYPE.AT_COMMAND,
+      command: 's',
+      commandParameter: [],
+    };
+
+    serialPort.write(xbeeAPI.buildFrame(frame), function(err, res) {
+      if (err) {
+        throw(err);
+      } else {
+        console.log('written bytes: ' + util.inspect(res));
+      }
+    });
+  }
 };
 
-exports.onDisconnect = function (socket) {
+exports.onDisconnect = function () {
  //
-}
-
-
-
-  // Add Node by hand...
-  // var myNode = xbee.addNode([0x00,0x13,0xa2,0x00,0x40,0x61,0x2f,0xe4]); //Must either hard code or discover nodes.
-
-
+};

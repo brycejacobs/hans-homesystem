@@ -29,13 +29,11 @@ angular.module( 'monitorSystem.home', [
     });
   });
 
-  socket.on('discover:start', function () {
-    $scope.scanning = true;
-  });
+  $scope.alerts = [];
 
-  socket.on('discover:end', function () {
-    $scope.scanning = false;
-  });
+  $scope.closeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
 
   $scope.toggleDevice = function (device) {
     socket.emit('device:toggle', {

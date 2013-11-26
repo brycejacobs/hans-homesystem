@@ -68,9 +68,17 @@ angular.module("auth/auth.tpl.html", []).run(["$templateCache", function($templa
 
 angular.module("home/home.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("home/home.tpl.html",
+    "<alert ng-repeat=\"alert in alerts\" type=\"alert.type\" close=\"closeAlert($index)\">{{alert.msg}}</alert>\n" +
+    "\n" +
     "<ul>\n" +
     "  <li ng-repeat=\"device in devices\">\n" +
-    "    {{device.status}} - {{device.current}}\n" +
+    "    <input type=\"checkbox\" class=\"col-md-3\" ng-model=\"device.status\" ng-change=\"emitChange(device)\"></input>\n" +
+    "    <div class=\"col-md-4\">\n" +
+    "      {{device.status}}\n" +
+    "    </div>\n" +
+    "    <div class=\"col-md-5\">\n" +
+    "      {{device.current}}\n" +
+    "    </div>\n" +
     "  </li>\n" +
     "</ul>");
 }]);

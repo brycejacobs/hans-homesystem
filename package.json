@@ -74,7 +74,9 @@
     "grunt-shell": "~0.3.1",
     "grunt-ngmin": "0.0.3",
     "grunt-sass": "~0.6.1",
-    "grunt-html2js": "~0.1.7"
+    "grunt-html2js": "~0.1.7",
+    "serialport":"1.2.5",
+    "xbee-api": "0.3.x"
   },
   "scripts": {
     "start": "node --harmony-generators server"

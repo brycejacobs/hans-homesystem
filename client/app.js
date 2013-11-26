@@ -14,8 +14,7 @@ angular.module( 'monitorSystem', [
 })
 
 .controller( 'AppCtrl', function AppCtrl ($scope, userFactory) {
-  $scope.name = userFactory.name;
-
+  $scope.user = userFactory;
 })
 
 ;
