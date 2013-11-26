@@ -22,6 +22,7 @@
     "angular": false,
     "_": false,
     "Highcharts": false,
-    "$": false
+    "$": false,
+    "io": false
   }
 }

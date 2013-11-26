@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module( 'monitorSystem')
-  .factory('socket', function () {
+  .factory('socket', function ($rootScope) {
 
   var socket = io.connect();
 
@@ -22,8 +22,7 @@ angular.module( 'monitorSystem')
             callback.apply(socket, args);
           }
         });
-      })
+      });
     }
   };
-
-  });
+});

@@ -3,7 +3,7 @@
     "bower": "client/lib",
     "client": "client",
     "config": "config",
-    "dist": "client-built",
+    "dist": "dist",
     "log": "log",
     "server": "server",
     "test": "test",

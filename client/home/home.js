@@ -35,11 +35,11 @@ angular.module( 'monitorSystem.home', [
 
   socket.on('discover:end', function () {
     $scope.scanning = false;
-  })
+  });
 
   $scope.toggleDevice = function (device) {
     socket.emit('device:toggle', {
       device: device
     });
-  }
+  };
 });

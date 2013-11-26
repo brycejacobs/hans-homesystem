@@ -64,7 +64,8 @@ module.exports = function (grunt) {
             src: [
               'es5-shim/es5-shim.js',
               'json3/lib/json3.js',
-              'modernizr/modernizr.js'
+              'modernizr/modernizr.js',
+              'socket.io-client/dist/socket.io.min.js'
             ]
           },
           {
@@ -87,7 +88,8 @@ module.exports = function (grunt) {
             src: [
               'es5-shim/es5-shim.js',
               'json3/lib/json3.js',
-              'modernizr/modernizr.js'
+              'modernizr/modernizr.js',
+              'socket.io-client/dist/socket.io.min.js'
             ]
           },
           {

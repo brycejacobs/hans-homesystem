@@ -17,7 +17,7 @@ exports.register = function (app) {
   });
 
   // Add Node by hand...
-  var myNode = xbee.addNode([0x00,0x13,0xa2,0x00,0x40,0x61,0x2f,0xe4]); //Must either hard code or discover nodes.
+  // var myNode = xbee.addNode([0x00,0x13,0xa2,0x00,0x40,0x61,0x2f,0xe4]); //Must either hard code or discover nodes.
 
   xbee.on('initialized', function(params) {
     console.log('XBee Parameters: %s', util.inspect(params));
@@ -69,7 +69,7 @@ exports.register = function (app) {
 
     console.log('[%s] CONNECTED', socket.ip);
 
-    socket.on('device:toggle', function (data) {
+    socket.on('device:toggle', function () {
       //This will be of format {_id: String, status: bool, current: Dont Care}
       //This should tell the xbee to send out a msg to that device to turn on/off
     });
