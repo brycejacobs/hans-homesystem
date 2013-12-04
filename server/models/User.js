@@ -25,7 +25,6 @@ var schema = new mongoose.Schema({
       password: { type: String }
     }
   },
-  devices: [{type: mongoose.Schema.ObjectId, ref: 'Device'}],
   roles: [{ type: String }]
 });
 
