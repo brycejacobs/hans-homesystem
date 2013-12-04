@@ -10,7 +10,7 @@ exports.onConnect = function (socket) {
   socket.on('device:toggle', function () {
     //This will be of format {_id: String, status: bool, current: Dont Care}
     //This should tell the xbee to send out a msg to that device to turn on/off'
-    writeToggle(serialPort);
+    // writeToggle(serialPort);
   });
 
   // SerialPort.list(function (err, ports) {
@@ -23,7 +23,7 @@ exports.onConnect = function (socket) {
   var C = xbee_api.constants;
 
   var xbeeAPI = new xbee_api.XBeeAPI({
-    api_mode: 1
+    'api_mode': 1
   });
 
   var serialport = new SerialPort('/dev/cu.usbserial-FTGDGWJ0', {

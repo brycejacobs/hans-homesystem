@@ -164,7 +164,11 @@ module.exports = function (grunt) {
       },
       server: {
         files: {
-          src: '<%= project.path.server %>/**/*.js'
+          src: [
+            '<%= project.path.server %>/**/*.js',
+            '!<%= project.path.server %>/sockets/xbee.js'
+          ]
+
         }
       },
       grunt: [
